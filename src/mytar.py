@@ -43,7 +43,7 @@ def extract(tar):
             break                                            # End of tar file
         
         fname = fname.split(".")                             # Create new file for output
-        fname[0] += "2"
+        fname[0] += "new"
         fname = ".".join(fname)
 
         fdWriter = os.open(fname, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, stat.S_IRWXU) # Create or open new file to write to
@@ -62,11 +62,8 @@ tarCommand = argv[1:]                                       # Takes TAR command 
 command = tarCommand[0].lower()                             # c or x
 
 if(command == 'c'):                                         # Check if command valid "c"
-    os.write(1,"Creating...\n".encode())
-
     create(tarCommand[1:3])                                 # create and store in .tar
 
-if(tarCommand[0].lower() == 'x'):                           # Check if command valid "x"
-    os.write(1,"Extracting...\n".encode())                  
+if(command == 'x'):                           # Check if command valid "x"    
     tar = tarCommand[1]
     extract(tar)                                            # Extract files from .tar
