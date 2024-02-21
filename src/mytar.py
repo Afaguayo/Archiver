@@ -62,7 +62,7 @@ tarCommand = argv[1:]                                       # Takes TAR command 
 command = tarCommand[0].lower()                             # c or x
 
 if(command == 'c'):                                         # Check if command valid "c"
-    create(tarCommand[1:3])                                 # create and store in .tar
+    create(tarCommand[1:])                                 # create and store in .tar
 
 if(command == 'x'):                           # Check if command valid "x"    
     tar = tarCommand[1]
